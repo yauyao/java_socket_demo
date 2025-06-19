@@ -2,13 +2,13 @@
 <html>
 <head><title>WebSocket + API</title></head>
 <body>
-<h2>WebSocket Receiver</h2>
-<ul id="messages"></ul>
 
 <h2>Send Message via API</h2>
 <input type="text" id="msg" placeholder="Enter message"/>
 <button onclick="sendMessage()">Send</button>
 
+<h2>WebSocket Receiver</h2>
+<ul id="messages"></ul>
 <script>
     const ws = new WebSocket("ws://localhost:8082/ws");
     ws.onmessage = function (event) {
