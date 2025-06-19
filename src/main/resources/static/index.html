@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><title>WebSocket + API</title></head>
+<body>
+<h2>WebSocket Receiver</h2>
+<ul id="messages"></ul>
+
+<h2>Send Message via API</h2>
+<input type="text" id="msg" placeholder="Enter message"/>
+<button onclick="sendMessage()">Send</button>
+
+<script>
+    const ws = new WebSocket("ws://localhost:8082/ws");
+    ws.onmessage = function (event) {
+        const li = document.createElement("li");
+        li.textContent = event.data;
+        document.getElementById("messages").appendChild(li);
+    };
+
+    function sendMessage() {
+        const msg = document.getElementById("msg").value;
+        fetch("/api/send", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({message: msg})
+        });
+    }
+</script>
+</body>
+</html>
