@@ -5,3 +5,6 @@ spring:
     name: websocketdemo
   main:
     allow-bean-definition-overriding: true
+app:
+  websocket:
+    url: ws://localhost:8080/ws

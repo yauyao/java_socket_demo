@@ -10,21 +10,30 @@
 <h2>WebSocket Receiver</h2>
 <ul id="messages"></ul>
 <script>
-    const ws = new WebSocket("ws://localhost:8082/ws");
-    ws.onmessage = function (event) {
-        const li = document.createElement("li");
-        li.textContent = event.data;
-        document.getElementById("messages").appendChild(li);
-    };
+    let ws;
+
+    // 先取得設定
+    fetch('/api/config')
+        .then(response => response.json())
+        .then(config => {
+            ws = new WebSocket(config.websocketUrl);
+
+            ws.onmessage = function (event) {
+                const li = document.createElement("li");
+                li.textContent = event.data;
+                document.getElementById("messages").appendChild(li);
+            };
+        });
 
     function sendMessage() {
         const msg = document.getElementById("msg").value;
         fetch("/api/send", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({message: msg})
+            body: JSON.stringify({message: msg})
         });
     }
+
 </script>
 </body>
 </html>

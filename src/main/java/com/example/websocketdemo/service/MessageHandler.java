@@ -1,5 +1,5 @@
 
-package com.example.websocketdemo;
+package com.example.websocketdemo.service;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;

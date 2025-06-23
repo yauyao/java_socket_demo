@@ -8,4 +8,4 @@ echo "Building Spring Boot app container..."
 docker build -t java-socket-demo .
 
 # Start Spring Boot app
-docker run -d --name java-socket-demo -p 8082:8080 java-socket-demo
+docker run -d --name java-socket-demo -p 8080:8080 java-socket-demo

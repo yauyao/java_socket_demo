@@ -1,5 +1,6 @@
-package com.example.websocketdemo;
+package com.example.websocketdemo.controller;
 
+import com.example.websocketdemo.service.MessageHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
