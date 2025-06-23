@@ -4,7 +4,7 @@ FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
 
 # 下載原始碼
-RUN git clone https://github.com/yauyao/java_socket_demo.git .
+RUN git clone --depth=1 https://github.com/yauyao/java_socket_demo.git .
 
 # 使用 Maven 打包（跳過測試）
 RUN mvn clean package -DskipTests
